@@ -1,0 +1,25 @@
+section
+  form(action="/login" method="post")
+    fieldset
+      legend FruitShop Login Form
+      div
+        label(for='email') Email:
+        input(type='text',name='email',value='#{email}')
+      div
+        label(for='password') Password:
+        input(type="password",name="password",value="password")
+      div
+        input(type="submit",value="login")
+section
+  form(action="/api/users" method="post")
+    fieldset
+      legend New User? Sign Up!
+      div
+        label(for='email') Email:
+        input(type="text",name="email",value="email")
+      div
+        label(for="password") Password:
+        input(type="password",name="password",value="password")
+      div
+        input(type="submit",value="Sign Up")
+

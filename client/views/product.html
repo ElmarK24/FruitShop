@@ -1,0 +1,19 @@
+<div ng-controller="ProductCtrl">
+<center><h3>Products</h3></center>
+
+  <div class="panel-body table-bordered" ng-repeat="product in products">
+    <center>
+      <h3>{{product.name}}</h3>
+      <label>Price: {{product.price}}</label>
+      <label>Sku: {{product.sku}}</label>
+      <button type = "button" ng-click = "addProduct(product, product.price, product.sku, product.taxRate)">Buy Now</button></center>
+  </div>
+  <div ng-repeat="lineItem in Order.LineItems">
+    <h2>Order Totals</h2>
+    <center>
+      <h3>{{lineItem}}</h3>
+    </center>
+  </div>
+
+</div>
+

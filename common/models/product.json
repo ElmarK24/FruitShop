@@ -1,0 +1,28 @@
+{
+  "name": "Product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "number"
+    },
+    "Sku": {
+      "type": "number"
+    }
+  },
+  "TaxRate": {
+    "type": "number"
+  },
+  "validations": [],
+  "relations": {
+    "LineItem": {
+      "type": "belongsTo",
+      "model": "LineItem"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

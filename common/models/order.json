@@ -1,0 +1,36 @@
+{
+  "name": "Order",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "LineItem": {
+      "type": [
+        "object"
+      ]
+    },
+    "Taxes": {
+      "type": "number"
+    },
+    "SubTotal": {
+      "type": "number",
+      "default": 0
+    },
+    "Total": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "OrderLineItems": {
+      "type": "hasMany",
+      "model": "lineitem",
+      "required": true
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

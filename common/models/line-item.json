@@ -1,0 +1,34 @@
+{
+  "name": "LineItem",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Product": {
+      "type": "object"
+    },
+    "Quantity": {
+      "type": "number"
+    },
+    "Taxes": {
+      "type": "number"
+    },
+    "SubTotal": {
+      "type": "number"
+    },
+    "Total": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Order": {
+      "type": "belongsTo",
+      "model": "LineItem"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
