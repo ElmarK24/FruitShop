@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="app">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
@@ -8,17 +8,20 @@
     <meta charset="UTF-8">
     <title>FruitShop</title>
 </head>
-<body ng-app="routerApp">
-<center><h1>FruitShop</h1></center>
+<body>
+  <header>
+    <h1>FruitShop</h1>
+  </header>
+
 
 <div ui-view></div>
 
 </body>
 
 
-<script src="/js/lb-services.js"></script>
+<script src="/js/services/lb-services.js"></script>
 <script src="/app.js"></script>
-<script src="/controllers/lineitem.js"></script>
-<script src="/controllers/product.js"></script>
-<script src="/controllers/order.js"></script>
+<script src="/js/controllers/lineitem.js"></script>
+<script src="/js/controllers/product.js"></script>
+<script src="/js/controllers/order.js"></script>
 </html>

@@ -1,33 +1,21 @@
 
 
-var routerApp = angular.module('routerApp', ['lbServices','ui.router']);
-
-routerApp.config( function($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise('/product');
-
-  $stateProvider
-
-    .state('product', {
-      url: '/product',
-      templateUrl: 'views/product.html',
-     controller: 'ProductCtrl'
+angular.module('app', ['lbServices','ui.router'])
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('product', {
+        url: '/product',
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
     })
-
-    .state('order', {
-      url: '/order',
-      templateUrl: 'views/order.html'
+      .state('order', {
+        url: '/order',
+        templateUrl: 'views/order.html',
+        controller: 'ProductCtrl'
     });
+    $urlRouterProvider.otherwise('/product');
 
-});
-
-routerApp.factory("DataService", function() {
-  var myOrder = Order.create();
-
-  return {
-    Order: myOrder
-  }
-});
+}]);
 
 
   // routerApp.controller('ProductCtrl',['Product', '$scope', function (Product, $scope) {

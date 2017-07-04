@@ -1,4 +1,4 @@
-angular.module('routerApp')
+angular.module('app')
   .controller('OrderCtrl',['$scope', '$state', "Order", "LineItem", "Product", function($scope, $state, Order, LineItem, Product) {
 
    function getNewOrder(){

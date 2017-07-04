@@ -1,30 +1,27 @@
-'use strict';
+//'use strict';
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var path = require('path');
-var bodyParser = require('body-parser');
-
 var app  = module.exports = loopback();
 
-// app.use(loopback.static('client'));
-app.set('view engine', 'jade');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(loopback.token());
+app.use(loopback.static('client'));
+//app.use(loopback.rest());
 
 var session = require('express-session');
 
 const MongoStore = require('connect-mongo')(session);
 
+
 app.set('trust proxy', 1); // trust first proxy
-app.use(session({
-  secret: 's3Cur3',
-  name: 'sessionId',
-  store: new MongoStore({url: 'mongodb://localhost/mydb'}),
-})
+app.use( session({
+    secret : 's3Cur3',
+    name : 'sessionId',
+     store: new MongoStore({ url: 'mongodb://localhost/mydb' })
+  })
 );
+
+
 
 app.start = function() {
   // start the web server
@@ -38,9 +35,9 @@ app.start = function() {
     }
   });
 };
-// app.get('/',function(req,res){
-//   res.sendFile('index.html', { 'root':__dirname + '/../client'});
-// });
+app.get('/',function(req,res){
+  res.sendFile('index.html', { 'root':__dirname + '/../client'});
+})
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
