@@ -1,0 +1,16 @@
+main
+  h1 Hi #{accessToken}
+  p Your accessToken is: #{accessToken}
+section
+  form(action="#{redirectUrl}" method="post")
+  fieldset
+    legend Change Password Form
+    div
+      label(for='password') Old Password:
+      input(type="password",name="oldPassword")
+    div
+      label(for='password') New Password:
+      input(type="password",name="newPassword")
+    div
+      input(type="submit",value="Change password")
+  a(href="/logout?access_token=#{accessToken}") Log out

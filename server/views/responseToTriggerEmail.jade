@@ -1,0 +1,19 @@
+style(type="text/css").
+  button {
+    background: none;
+    border: none;
+    font: inherit;
+    border-bottom: 1px solid #000000;
+    cursor: pointer;
+  }
+h1 #{title}
+if(typeof content !== 'undefined')
+  p #{content}
+form(action="#{redirectToEmail}" method='post')
+  button(type='submit',value="#{redirectToLinkText}",#{redirectToLinkText})
+    | for new email to complete registration.
+    | Click
+    a(href="#{redirectTo}")home
+    | to try login again or sign up.
+
+

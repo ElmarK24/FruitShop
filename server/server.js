@@ -22,7 +22,8 @@ app.set('trust proxy', 1); // trust first proxy
 app.use(session({
   secret: 's3Cur3',
   name: 'sessionId',
-  store: new MongoStore({url: 'mongodb://localhost/mydb'})})
+  store: new MongoStore({url: 'mongodb://localhost/mydb'}),
+})
 );
 
 app.start = function() {

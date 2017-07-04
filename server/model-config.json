@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -46,6 +47,9 @@
   "Product": {
     "dataSource": "db",
     "public": true
+  },
+  "Email": {
+    "dataSource": "emailDs"
   },
   "user": {
     "dataSource": "db",

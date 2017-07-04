@@ -1,38 +1,39 @@
-'use strict';
 
 var dsConfig = require('../datasources.json');
 var path = require('path');
 
+
+
 module.exports = function(app) {
   var User = app.models.user;
 
-  // Login Page
+  // login page
   app.get('/', function(req, res) {
-    var credentials = dsConfig.emailIDs.transports[0].auth;
+    var credentials = dsConfig.emailDs.transports[0].auth;
     res.render('login', {
       email: credentials.user,
-      password: credentials.pass,
+      password: credentials.password,
     });
   });
   // Verified
   app.get('/verified', function(req, res) {
     res.render('verified');
   });
-  // Logs a user in
+  // log a user in
   app.post('/login', function(req, res) {
     User.login({
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.password
     }, 'user', function(err, token) {
       if (err) {
-        if (err.details && err.code === 'LOGIN_FAILED_EMAIL_NOT_VERFIED'){
+        if (err.details && err.code === 'LOGIN_FAILED_EMAIL_NOT_VERIFIED') {
           res.render('responseToTriggerEmail', {
             title: 'Login failed',
             content: err,
-            redirectToEmail: '/api/users/' + err.details.userId + '/verify',
+            redirectToEmail: '/api/users/'+ err.details.userId + '/verify',
             redirectTo: '/',
             redirectToLinkText: 'Click here',
-            userId: err.details.userId,
+            userId: err.details.userId
           });
         } else {
           res.render('response', {
@@ -47,7 +48,7 @@ module.exports = function(app) {
       res.render('home', {
         email: req.body.email,
         accessToken: token.id,
-        redirectUrl: '/api/users/change-password?access_token=' + token.id,
+        redirectUrl: '/api/users/change-password?access_token=' + token.id
       });
     });
   });

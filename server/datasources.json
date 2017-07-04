@@ -12,8 +12,8 @@
     "xxxname": "mydb2",
     "connector": "mongodb"
   },
-  "emailIDs": {
-    "name": "emailIDs",
+  "emailDs": {
+    "name": "emailDs",
     "connector": "mail",
     "transports": [
       {
