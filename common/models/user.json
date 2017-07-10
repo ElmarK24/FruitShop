@@ -1,17 +1,36 @@
 {
   "name": "user",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
-  "properties": {},
-  "restrictResetPasswordTokenScope": true,
-  "emailVerificationRequired": true,
+  "properties": {
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "order":{
+      "type": "object"
+    }
+  },
   "validations": [],
-  "relations": {},
-  "acls": [
+  "relations": {
+    "myOrder": {
+      "type": "hasOne",
+      "model": "Order"
+    }
+  },
+  "ACL": [
     {
       "principalType": "ROLE",
-      "principalId": "$everyone",
-      "accessType": "READ",
+      "principalId": "$authenticated",
+      "accessType": "*",
       "permission": "ALLOW"
     }
   ],

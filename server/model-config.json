@@ -13,13 +13,13 @@
       "./mixins"
     ]
   },
-  "User": {
+  "user": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "ACL": {
     "dataSource": "db",
@@ -47,13 +47,5 @@
   "Product": {
     "dataSource": "db",
     "public": true
-  },
-  "Email": {
-    "dataSource": "emailDs"
-  },
-  "user": {
-    "dataSource": "db",
-    "public": true,
-    "options": {}
   }
 }

@@ -1,5 +1,6 @@
 {
   "name": "LineItem",
+  "plural": "LineItems",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -24,9 +25,13 @@
   },
   "validations": [],
   "relations": {
-    "Order": {
+    "order": {
       "type": "belongsTo",
-      "model": "LineItem"
+      "model": "Order"
+    },
+    "product": {
+      "type": "hasMany",
+      "model": "Product"
     }
   },
   "acls": [],

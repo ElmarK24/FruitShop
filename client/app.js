@@ -3,6 +3,11 @@
 angular.module('app', ['lbServices','ui.router'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+      })
       .state('product', {
         url: '/product',
         templateUrl: 'views/product.html',
@@ -12,10 +17,21 @@ angular.module('app', ['lbServices','ui.router'])
         url: '/order',
         templateUrl: 'views/order.html',
         controller: 'ProductCtrl'
-    });
-    $urlRouterProvider.otherwise('/product');
+    })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/register.html',
+        controller: 'RegisterController'
+      });
 
-}]);
+    $urlRouterProvider.otherwise('/login');
+
+}])
+  // .run(['$rootScope', '$location', 'authService',
+  // function ($rootScope, $location, authService) {
+  //
+  // }])
+;
 
 
   // routerApp.controller('ProductCtrl',['Product', '$scope', function (Product, $scope) {

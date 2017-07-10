@@ -1,5 +1,6 @@
 {
   "name": "Order",
+  "plural": "Orders",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -25,9 +26,14 @@
   },
   "validations": [],
   "relations": {
+    "userOrder": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
     "OrderLineItems": {
       "type": "hasMany",
-      "model": "lineitem",
+      "model": "LineItem",
       "required": true
     }
   },
